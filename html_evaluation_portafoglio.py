@@ -16,7 +16,7 @@ def create_dataframe(list_securities):
 
 
 def perc_df(df):
-    return df.div(data.shift(1))-1
+    return df.div(df.shift(1))-1
 
 
 def df_inverse_volatility(df_perc, window):
