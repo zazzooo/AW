@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tabble</title>
+    <link href="style.css" rel="stylesheet">
+    <style>table, th, td {border:1px solid black;) </style>
+  </head>
+  <body>
+    <div class="container" style="display:inline-block;vertical-align:top;margin-top: 20px;">
+      <table class="table of statistics" id="stats" style="width:100%">
+        <caption>
+          <h3>Stastic</h3>
+        </caption>
+        <thead>
+          <tr>
+            <th>index</th>
+            <th>value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Annualised return</td>
+            <td>0.1259</td>
+          </tr>
+          <tr>
+            <td>Annualised volatility</td>
+            <td>0.1185</td>
+          </tr>
+          <tr>
+            <td>Sharpe ratio</td>
+            <td>1.063</td>
+          </tr>
+          <tr>
+            <td>Sortino ratio</td>
+            <td>1.5237</td>
+          </tr>
+          <tr>
+            <td>Adjusted sortino</td>
+            <td>1.0774</td>
+          </tr>
+          <tr>
+            <td>Skew</td>
+            <td>-0.3002</td>
+          </tr>
+          <tr>
+            <td>Kurtosis</td>
+            <td>3.0116</td>
+          </tr>
+          <tr>
+            <td>Max drawdown</td>
+            <td>-0.1679</td>
+          </tr>
+          <tr>
+            <td>GPR</td>
+            <td>0.1984</td>
+          </tr>
+          <tr>
+            <td>Calmar ratio</td>
+            <td>0.751</td>
+          </tr>
+          <tr>
+            <td>Pay-off ratio</td>
+            <td>0.9775</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container" style="display:inline-block;margin-top: 50px;">
+      <img alt="Distribution plot" height="330" src="./img/table_montly_returns.png" width="550">
+    </div>
+    <div class="container" style="display:inline-block;margin-top: 50px;">
+      <img alt="Distribution plot" height="288" src="./img/distribution_returns.png" width="420">
+    </div>
+    <div class="container" style="display:inline-block;vertical-align:top;margin-top: 50px;margin-left: 50px;">
+      <img alt="Distribution plot" height="288" src="./img/drawdowns_period.png" width="576">
+    </div>
+    <div class="container" style="display:inline-block;margin-top: 50px;">
+      <img alt="Distribution plot" height="288" src="./img/under_water_plot.png" width="576">
+    </div>
+  </body>
+</html>
