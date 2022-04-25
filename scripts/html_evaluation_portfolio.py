@@ -3,13 +3,18 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 import seaborn as sns
+from datetime import datetime
+from datetime import date
 from IPython.display import display
 
-def create_dataframe(list_securities):
+def create_dataframe(list_securities, start_date = pd.to_datetime('2007-01-03'), end_date = date.today()):
     df = pd.DataFrame()
     for security in list_securities:
         SEC = yf.Ticker(security)
-        hist = SEC.history(period="max")
+        if start_date:
+            hist = SEC.history(start = start_date, end = end_date)
+        else:    
+            hist = SEC.history(period="max")
         df[security] = hist['Close'] #I just consider the close price, is that correct?
         #df.dropna() #if this line the data are only from 2010 otyherwise some columns arrive until 2006
     return df

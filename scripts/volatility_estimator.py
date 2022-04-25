@@ -51,7 +51,7 @@ def compute_park_volatility(df_high_low, list_securities, window):
 def index_df(df_output, data, window):
     #just add the index to the dataframe
     data_copy = data.copy()
-    data_copy.drop(data_copy.tail(window).index, inplace=True) # drop last n rows
+    data_copy.drop(data_copy.head(window).index, inplace=True) # drop last n rows
 
     return df_output.set_index(data_copy.index)
 
