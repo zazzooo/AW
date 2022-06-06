@@ -39,7 +39,8 @@ def compute_park_volatility(df_high_low, list_securities, window):
                 #array_day_value = np.array([])
 
                 #appending the value (one for each window day)
-                array_day_value = np.append(array_day_value, np.log((df_high_low[security + '_high'][i+j] / df_high_low[security + '_low'][i+j])**2))
+                array_day_value = np.append(array_day_value, np.log(df_high_low[security + '_high'][i+j] / df_high_low[security + '_low'][i+j])**2)
+
                 # len(array_day_value) = window
             square_sum_value = np.sqrt(np.sum(array_day_value))
             array_value = np.append(array_value, k*square_sum_value)

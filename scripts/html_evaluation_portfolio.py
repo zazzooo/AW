@@ -7,6 +7,7 @@ from datetime import datetime
 from datetime import date
 from IPython.display import display
 
+
 def create_dataframe(list_securities, start_date = pd.to_datetime('2007-01-03'), end_date = date.today()):
     df = pd.DataFrame()
     for security in list_securities:
@@ -20,7 +21,7 @@ def create_dataframe(list_securities, start_date = pd.to_datetime('2007-01-03'),
     return df
 
 
-def perc_df(df):
+def return_df(df):
     return df.div(df.shift(1))-1
 
 
@@ -45,7 +46,7 @@ def df_wheighted(inv_volat_df):
 
 def df_earnings(df_weight_portf, data_perc):
 
-    #compte the earning dataframe (df_weight*df_percentage - entries by entries)
+    #compte the earning dataframe (df_weight*df_returns - entries by entries)
     df = df_weight_portf*data_perc
     df['Tot'] = df.sum(axis= 1)
     return df
@@ -66,7 +67,7 @@ if __name__ == '__main__':
 
     #main
     data = create_dataframe(list_securities)
-    data_perc = perc_df(data)
+    data_perc = return_df(data)
     inv_volat_data = df_inverse_volatility(data_perc, window)
     data_wheighted = df_wheighted(inv_volat_data)
     data_earnings = df_earnings(data_wheighted, data_perc)
