@@ -3,7 +3,7 @@ import numpy as np
 import yfinance as yf
 from bgdataloader import polygon_fetch as pf
 
-
+#utiliteis for notebooks
 def create_dataframe_high_low(list_securities):
     df = pd.DataFrame()
     for security in list_securities:
@@ -73,8 +73,8 @@ def dataframe_strd_dev(data, window):
     '''
     input
     data = pandas dataframe, index: timestamp; column: name security; value: close price (or what ever you need).
-     window = number of day you want ton compute the standard deviation on.   
-     
+     window = number of day you want ton compute the standard deviation on.
+
      output
      df_output = pandas dataframe with security as column, and standard deviation as value
     '''
