@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import yfinance as yf
+from bgdataloader import polygon_fetch as pf
+
 
 def create_dataframe_high_low(list_securities):
     df = pd.DataFrame()
@@ -9,6 +11,17 @@ def create_dataframe_high_low(list_securities):
         hist = SEC.history(period="max")
         df[security + '_low'] = hist['Low']
         df[security + '_high'] = hist['High']
+        df.dropna(inplace = True) #if this line the data are only from 2010 otyherwise some columns arrive until 2006
+    return df
+
+def create_dataframe_high_low_polygon(list_securities, start_date, end_date):
+    df = pd.DataFrame()
+    for security in list_securities:
+        pc = pf.PolygonClient()
+        client = pc.get_client()
+        hist = pc.get_equity_bar_data(security, 1, "day",start_date, end_date)
+        df[security + '_low'] = hist['low']
+        df[security + '_high'] = hist['high']
         df.dropna(inplace = True) #if this line the data are only from 2010 otyherwise some columns arrive until 2006
     return df
 
@@ -88,6 +101,19 @@ def create_dataframe_ohlc(list_securities):
         df[security + '_high'] = hist['High']
         df[security + '_low'] = hist['Low']
         df[security + '_close'] = hist['Close']
+        df.dropna(inplace = True) #if this line the data are only from 2010 otyherwise some columns arrive until 2006
+    return df
+
+def create_dataframe_ohlc_polygon(list_securities, start_date, end_date):
+    df = pd.DataFrame()
+    for security in list_securities:
+        pc = pf.PolygonClient()
+        client = pc.get_client()
+        hist = pc.get_equity_bar_data(security, 1, "day",start_date, end_date)
+        df[security + '_open'] = hist['open']
+        df[security + '_high'] = hist['high']
+        df[security + '_low'] = hist['low']
+        df[security + '_close'] = hist['close']
         df.dropna(inplace = True) #if this line the data are only from 2010 otyherwise some columns arrive until 2006
     return df
 
