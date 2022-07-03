@@ -8,9 +8,6 @@ from datetime import date
 from IPython.display import display
 #from bgdataloader import polygon_fetch as pf
 
-import os
-
-os.chdir('C:\\Users\\shube\\Documents\\GitHub\\CCS\\')
 
 debug_xl = True
 
